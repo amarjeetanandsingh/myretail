@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"time"
 
@@ -40,6 +41,7 @@ func NewArangoClient() arango.DbServer {
 	arangoPort := config.GetEnv("ARANGO_PORT", "8529")
 	arangoUsername := config.GetEnv("ARANGO_USERNAME", "root")
 	arangoPassword := config.GetEnv("ARANGO_PASSWORD", "root")
+	fmt.Println(arangoHost, arangoPort, arangoUsername, arangoPassword)
 	dbServer, err := arango.New(arangoHost, arangoPort, arangoUsername, arangoPassword)
 	if err != nil {
 		log.Fatal("Arango init failed: ", err)
